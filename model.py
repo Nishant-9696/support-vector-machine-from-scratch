@@ -46,8 +46,9 @@ def predict_from_scores(scores):
             result.append(-1)
     return np.array(result)
 
-# Step 5 - hinge_loss_example (not yet solved)
-# TODO: implement
+# Step 5 - hinge_loss_example
+def hinge_loss_example(score, y):
+    return max(0, 1 - y * score)
 
 # Step 6 - svm_objective (not yet solved)
 # TODO: implement
