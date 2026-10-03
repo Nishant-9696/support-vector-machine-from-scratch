@@ -23,8 +23,16 @@ def initialize_parameters(n_features):
 
     return {'w': w, 'b': b}
 
-# Step 3 - compute_scores (not yet solved)
-# TODO: implement
+# Step 3 - compute_scores
+import numpy as np
+
+def compute_scores(x, params):
+    result = []
+
+    for i in range(len(x)):
+        result.append(x[i] @ params['w'] + params['b'])
+
+    return np.array(result)
 
 # Step 4 - predict_from_scores (not yet solved)
 # TODO: implement
