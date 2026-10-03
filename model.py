@@ -34,8 +34,17 @@ def compute_scores(x, params):
 
     return np.array(result)
 
-# Step 4 - predict_from_scores (not yet solved)
-# TODO: implement
+# Step 4 - predict_from_scores
+import numpy as np
+
+def predict_from_scores(scores):
+    result=[]
+    for i in range(len(scores)):
+        if scores[i] >= 0:
+            result.append(1)
+        else:
+            result.append(-1)
+    return np.array(result)
 
 # Step 5 - hinge_loss_example (not yet solved)
 # TODO: implement
