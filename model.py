@@ -64,8 +64,24 @@ def svm_objective(x, y, params, reg_lambda):
     
     return loss + regularization
 
-# Step 7 - compute_gradients (not yet solved)
-# TODO: implement
+# Step 7 - compute_gradients
+import numpy as np
+
+def compute_gradients(x, y, params, reg_lambda):
+    scores = compute_scores(x, params)
+
+    margins = 1 - y * scores
+
+    active = margins > 0
+
+    n = len(y)
+
+    dw = -np.sum(y[active, None] * x[active], axis=0) / n
+    dw = dw + 2 * reg_lambda * params['w']
+
+    db = -np.sum(y[active]) / n
+
+    return {'dw': dw, 'db': float(db)}
 
 # Step 8 - apply_update (not yet solved)
 # TODO: implement
