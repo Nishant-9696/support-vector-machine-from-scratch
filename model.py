@@ -91,8 +91,13 @@ def apply_update(params, grads, learning_rate):
     new['b']=params['b']-learning_rate*grads['db']
     return new
 
-# Step 9 - train_svm (not yet solved)
-# TODO: implement
+# Step 9 - train_svm
+def train_svm(x, y, learning_rate, reg_lambda, n_epochs):
+    params = initialize_parameters(x.shape[1])
+    for _ in range(n_epochs):
+        grads = compute_gradients(x, y, params, reg_lambda)
+        params = apply_update(params, grads, learning_rate)
+    return params
 
 # Step 10 - predict_labels (not yet solved)
 # TODO: implement
